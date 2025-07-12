@@ -144,9 +144,9 @@ if exists('g:marktext_toc_enabled') && g:marktext_toc_enabled == 1
     endfunction
 
     " --------------------------------------------------
-    " marktext_cmd_toc
+    " marktext_cmd_toc_bas
     " --------------------------------------------------
-    augroup marktext_cmd_toc
+    augroup marktext_cmd_toc_bas
         autocmd!
         if g:marktext_toc_autoupdate
             autocmd BufWritePre *.md call marktext#TocUpdate()
@@ -192,9 +192,9 @@ if exists('g:marktext_time_enabled') && g:marktext_time_enabled == 1
     endfunction
 
     " --------------------------------------------------
-    " marktext_cmd_time
+    " marktext_cmd_time_bas
     " --------------------------------------------------
-    augroup marktext_cmd_time
+    augroup marktext_cmd_time_bas
         autocmd!
         if g:marktext_time_autoupdate
             autocmd BufWritePre *.md call marktext#TimeUpdate()
