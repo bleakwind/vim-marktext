@@ -25,6 +25,7 @@ set cpoptions&vim
 " ============================================================================
 " 01: marktext_toc setting
 " ============================================================================
+" public setting
 let g:marktext_toc_enabled      = get(g:, 'marktext_toc_enabled',       0)
 let g:marktext_toc_maxlevel     = get(g:, 'marktext_toc_maxlevel',      9)
 let g:marktext_toc_autoupdate   = get(g:, 'marktext_toc_autoupdate',    1)
@@ -32,6 +33,7 @@ let g:marktext_toc_autoupdate   = get(g:, 'marktext_toc_autoupdate',    1)
 " ============================================================================
 " 02: marktext_time setting
 " ============================================================================
+" public setting
 let g:marktext_time_enabled     = get(g:, 'marktext_time_enabled',      0)
 let g:marktext_time_tformat     = get(g:, 'marktext_time_tformat',      '%Y-%m-%d %H:%M:%S')
 let g:marktext_time_autoupdate  = get(g:, 'marktext_time_autoupdate',   1)
@@ -170,7 +172,7 @@ if exists('g:marktext_time_enabled') && g:marktext_time_enabled == 1
     " marktext#TimeInsert
     " --------------------------------------------------
     function! marktext#TimeInsert() abort
-        let l:data_list = strftime(g:marktext_time_tformat)
+        let l:data_list = '$'.strftime(g:marktext_time_tformat)
         execute "normal! i".l:data_list."\<Esc>"
     endfunction
 
@@ -213,4 +215,3 @@ endif
 " ============================================================================
 let &cpoptions = s:save_cpo
 unlet s:save_cpo
-

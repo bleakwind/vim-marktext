@@ -47,7 +47,9 @@ marktext_time
 ```vim
 " Set 1 enable marktext_time (default: 0)
 let g:marktext_time_enabled = 0
-" Enable automatic time updates
+" Set time format (default: '%Y-%m-%d %H:%M:%S')
+let g:marktext_time_tformat = '%Y-%m-%d %H:%M:%S'
+" Enable automatic time updates (default: 1)
 let g:marktext_time_autoupdate = 1
 ```
 
@@ -59,4 +61,3 @@ let g:marktext_time_autoupdate = 1
 
 ## License
 BSD 2-Clause - See LICENSE file
-
