@@ -56,7 +56,9 @@ if exists('g:marktext_toc_enabled') && g:marktext_toc_enabled == 1
     " marktext#TocUpdate
     " --------------------------------------------------
     function! marktext#TocUpdate() abort
-        let l:save_pos = getpos('.')
+        " save env
+        let l:orig_cursor = getpos('.')
+
         let l:toc_start = -1
         let l:toc_finish = -1
         let l:con_all = getline(1, '$')
@@ -78,7 +80,9 @@ if exists('g:marktext_toc_enabled') && g:marktext_toc_enabled == 1
                 call append(l:toc_start, [ ''] + new_toc + [''])
             endif
         endif
-        call setpos('.', l:save_pos)
+
+        " restore env
+        call setpos('.', l:orig_cursor)
     endfunction
 
     " --------------------------------------------------
@@ -180,7 +184,9 @@ if exists('g:marktext_time_enabled') && g:marktext_time_enabled == 1
     " marktext#TimeUpdate
     " --------------------------------------------------
     function! marktext#TimeUpdate(...)
-        let l:save_pos = getpos('.')
+        " save env
+        let l:orig_cursor = getpos('.')
+
         let l:con_get = getline(1, '$')
         let l:con_len = len(l:con_get)
         for il in range(1, l:con_len)
@@ -190,7 +196,9 @@ if exists('g:marktext_time_enabled') && g:marktext_time_enabled == 1
                 call setline(il, l:line)
             endif
         endfor
-        call setpos('.', l:save_pos)
+
+        " restore env
+        call setpos('.', l:orig_cursor)
     endfunction
 
     " --------------------------------------------------
