@@ -42,7 +42,7 @@ let g:marktext_time_autoupdate  = get(g:, 'marktext_time_autoupdate',   1)
 " 01: marktext_toc detail
 " g:marktext_toc_enabled = 1
 " ============================================================================
-if exists('g:marktext_toc_enabled') && g:marktext_toc_enabled == 1
+if exists('g:marktext_toc_enabled') && g:marktext_toc_enabled ==# 1
 
     " --------------------------------------------------
     " marktext#TocInsert
@@ -82,7 +82,7 @@ if exists('g:marktext_toc_enabled') && g:marktext_toc_enabled == 1
         endif
 
         " restore env
-        call setpos('.', l:orig_cursor)
+        keepjumps call setpos('.', l:orig_cursor)
     endfunction
 
     " --------------------------------------------------
@@ -122,12 +122,12 @@ if exists('g:marktext_toc_enabled') && g:marktext_toc_enabled == 1
                 continue
             endif
             " check heading =
-            if l:line =~ '^=\+$' && !empty(l:prev_line) && l:prev_long == il - 1
+            if l:line =~ '^=\+$' && !empty(l:prev_line) && l:prev_long ==# il - 1
                 call add(l:head_list, { 'level': 1, 'text': l:prev_line, 'lnum': l:prev_long })
                 continue
             endif
             " check heading -
-            if l:line =~ '^-\+$' && !empty(l:prev_line) && l:prev_long == il - 1
+            if l:line =~ '^-\+$' && !empty(l:prev_line) && l:prev_long ==# il - 1
                 call add(l:head_list, { 'level': 2, 'text': l:prev_line, 'lnum': l:prev_long })
                 continue
             endif
@@ -170,7 +170,7 @@ endif
 " 02: marktext_time detail
 " g:marktext_time_enabled = 1
 " ============================================================================
-if exists('g:marktext_time_enabled') && g:marktext_time_enabled == 1
+if exists('g:marktext_time_enabled') && g:marktext_time_enabled ==# 1
 
     " --------------------------------------------------
     " marktext#TimeInsert
@@ -198,7 +198,7 @@ if exists('g:marktext_time_enabled') && g:marktext_time_enabled == 1
         endfor
 
         " restore env
-        call setpos('.', l:orig_cursor)
+        keepjumps call setpos('.', l:orig_cursor)
     endfunction
 
     " --------------------------------------------------
