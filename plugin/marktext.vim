@@ -117,18 +117,18 @@ if exists('g:marktext_toc_enabled') && g:marktext_toc_enabled ==# 1
             if !empty(l:matches)
                 let l:level = len(l:matches[1])
                 if l:level <= g:marktext_toc_maxlevel
-                    call add(l:head_list, { 'level': l:level, 'text': l:matches[2], 'lnum': il })
+                    call add(l:head_list, {'level': l:level, 'text': l:matches[2], 'lnum': il})
                 endif
                 continue
             endif
             " check heading =
             if l:line =~ '^=\+$' && !empty(l:prev_line) && l:prev_long ==# il - 1
-                call add(l:head_list, { 'level': 1, 'text': l:prev_line, 'lnum': l:prev_long })
+                call add(l:head_list, {'level': 1, 'text': l:prev_line, 'lnum': l:prev_long})
                 continue
             endif
             " check heading -
             if l:line =~ '^-\+$' && !empty(l:prev_line) && l:prev_long ==# il - 1
-                call add(l:head_list, { 'level': 2, 'text': l:prev_line, 'lnum': l:prev_long })
+                call add(l:head_list, {'level': 2, 'text': l:prev_line, 'lnum': l:prev_long})
                 continue
             endif
             let l:prev_line = l:line
