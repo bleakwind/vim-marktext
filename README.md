@@ -61,3 +61,4 @@ let g:marktext_time_autoupdate = 1
 
 ## License
 BSD 2-Clause - See LICENSE file
+
